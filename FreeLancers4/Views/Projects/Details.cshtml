@@ -1,0 +1,59 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+@inject UserManager<FreeLancers4User> UserManager
+
+@model FreeLancers4.Models.Work
+
+@{
+    ViewData["Title"] = "Details";
+    ViewData["name"] = "project-edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="general-details-container">
+    <div class="general-details-header">Details</div>
+    <div class="general-details-subheading">View details below</div>
+    <div class="general-details-content-div">
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Title</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.ProjectTitle)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Posted Date</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.PostDate)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Description</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Description)</div>
+        </div>
+
+        @if (UserManager.GetUserAsync(User).Result.Role == "freelancer")
+        {
+            <div class="general-details-content">
+                <div class="general-details-content-left">Contact Email</div>
+                <a href="mailto:@Model.ContactEmail">
+                    <div class="general-details-content-right error">@Html.DisplayFor(model => model.ContactEmail)</div>
+                </a>
+            </div>
+        }
+
+    </div>
+
+    @if (Model.Owner != null && Model.Owner.Equals(UserManager.GetUserAsync(User).Result))
+    {
+        <div class="client-work-card-section-2-bottom-button">
+            <a asp-action="Edit" asp-route-id="@Model.ID"><button>Edit</button></a>
+        </div>
+    }
+
+    <a asp-action="Index">
+        <div class="forgot-password">
+            Back to List
+        </div>
+    </a>
+</div>
+

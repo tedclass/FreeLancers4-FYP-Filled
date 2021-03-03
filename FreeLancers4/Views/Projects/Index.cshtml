@@ -1,0 +1,151 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+
+@inject UserManager<FreeLancers4User> UserManager
+
+@model IEnumerable<FreeLancers4.Models.Work>
+
+
+@{
+    ViewData["Title"] = "Dashboard";
+    ViewData["name"] = "listings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="work-buttons">
+    
+<div class="inputs-button">
+    <a asp-controller="Histories" asp-action="Index"><button>View Work History</button></a>
+</div>
+ <div class="inputs-button">
+                    <a asp-controller="Projects" asp-action="Reviews"><button>Review</button></a>
+                </div>
+
+  @if (UserManager.GetUserAsync(User).Result.Role.Equals("client"))
+  {
+      <div class="inputs-button">
+                    <a asp-controller="Projects" asp-action="Create"><button>Create New Job</button></a>
+      </div>
+
+  }
+                                </div>
+                                
+
+<!--search bar boi -->
+
+
+
+<div class="inputs-container">
+    <form asp-controller="Projects" asp-action="Index">
+        <label>Enter the project title to search </label>
+        <div class="actual-input">
+            <input type="text" name="SearchString" />
+            <br />
+            <br/>
+            Search by Skill: @Html.DropDownList("Skills", "All")
+            
+            <!--<input type="submit" value="Search Projects" /> -->
+            <div class="inputs-button">
+                <button type="submit">Find</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+<div class="client-work-card-container">
+    <div asp-validation-summary="ModelOnly" class="error"></div>
+
+    @if (UserManager.GetUserAsync(User).Result.Role.Equals("client"))
+    {
+
+        @foreach (var item in Model.OrderByDescending(m => m.ID).Where(m => m.Owner != null && m.Owner.Id.Equals(UserManager.GetUserId(User))))
+        {
+            <div class="client-work-card-div">
+                <div class="client-work-card-section-1">
+                    <div class="project-name">@Html.DisplayFor(modelItem => item.ProjectTitle)</div>
+                    <div class="project-name-subheading">Posted:  @Html.DisplayFor(modelItem => item.PostDate) | Deadline: @Html.DisplayFor(modelItem => item.DueDate)</div>
+                    <div class="description">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
+                    <div class="skills">
+                        @Html.DisplayFor(modelItem => item.Skills)
+                    </div>
+                </div>
+
+                <div class="client-work-card-section-2">
+                    <div class="client-work-card-section-2-top">@Html.DisplayFor(modelItem => item.Price)</div>
+                    <div class="client-work-card-section-2-bottom">
+
+                        <a asp-action="Edit" asp-route-id="@item.ID" asp-route-projecttitle="@item.ProjectTitle">
+                            <div class="client-work-card-section-2-bottom-button">
+                                <button>Edit</button>
+                            </div>
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.ID">
+                            <div class="client-work-card-section-2-bottom-button">
+                                <button>Details</button>
+                            </div>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.ID">
+                            <div class="client-work-card-section-2-bottom-button">
+                                <button>Delete</button>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    }
+    else
+    {
+        @foreach (var item in Model.OrderByDescending(m => m.ID))
+        {
+            <div class="client-work-card-div">
+                <div class="client-work-card-section-1">
+                    <div class="project-name">@Html.DisplayFor(modelItem => item.ProjectTitle)</div>
+                    <div class="project-name-subheading">Posted:  @Html.DisplayFor(modelItem => item.PostDate) | Deadline: @Html.DisplayFor(modelItem => item.DueDate)</div>
+                    <div class="description">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </div>
+                    <div class="skills">
+                        @Html.DisplayFor(modelItem => item.Skills)
+                    </div>
+                </div>
+
+                <div class="client-work-card-section-2">
+                    <div class="client-work-card-section-2-top">@Html.DisplayFor(modelItem => item.Price)</div>
+                    <div class="client-work-card-section-2-bottom">
+                        @if (item.WorkStatus.ToLower().Equals("assigned"))
+                        {
+                            <div class="client-work-card-section-2-bottom-button" disabled readonly>
+                                <div style="margin: 0.4em">Assigned</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <form method="post" asp-action="Accept" asp-controller="Projects">
+                                <input id="ID" name="ID" type="hidden" asp-for="@item.ID" />
+                                <div class="client-work-card-section-2-bottom-button">
+                                    <button type="submit">Take Job</button>
+                                </div>
+                            </form>
+                        }
+
+                        <a asp-action="Details" asp-route-id="@item.ID">
+                            <div class="client-work-card-section-2-bottom-button">
+                                <button>Details</button>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</div>
+

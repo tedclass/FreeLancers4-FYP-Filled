@@ -1,0 +1,62 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+
+@inject UserManager<FreeLancers4User> UserManager
+
+@model IEnumerable<FreeLancers4.Models.History>
+
+@{
+    ViewData["Title"] = "Index";
+    ViewData["name"] = "history";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="client-work-card-container">
+    @foreach (var item in Model.Where(p =>
+        {
+            if (UserManager.GetUserAsync(User).Result.Role == "freelancer")
+            {
+                return p!=null && p.Project.AssignedTo == UserManager.GetUserAsync(User).Result.Id;
+            }
+            else
+            {
+                return p!=null && p.Project.OwnedBy == UserManager.GetUserAsync(User).Result.Id;
+            }
+        }))
+    {
+        <div class="client-work-card-div">
+            <div class="client-work-card-section-1">
+                <div class="project-name">@Html.DisplayFor(modelItem => item.Project.Assigned)</div>
+                <div class="project-name-subheading">@Html.DisplayFor(modelItem => item.Project.Assigned)</div>
+                <div class="description">
+                    @Html.DisplayFor(modelItem => item.Project)
+                </div>
+            </div>
+
+            <div class="client-work-card-section-2">
+                <div class="rating">Rating: @Html.DisplayFor(modelItem => item.Rating)</div>
+                <div class="complete-date">Complete Date: @Html.DisplayFor(modelItem => item.Rating)</div>
+                <div class="client-work-card-section-2-bottom">
+
+                    <a asp-action="Edit" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <div class="client-work-card-section-2-bottom-button">
+                                <button>Edit</button>
+                            </div>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Details</button>
+                        </div>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.ID">
+                        <div class="client-work-card-section-2-bottom-button">
+                            <button>Delete</button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

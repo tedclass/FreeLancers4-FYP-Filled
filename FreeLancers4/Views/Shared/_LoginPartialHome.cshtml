@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+
+@inject SignInManager<FreeLancers4User> SignInManager
+@inject UserManager<FreeLancers4User> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index">
+                <div class="nav-actual-list">My Profile</div>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Register">
+                <div class="nav-actual-list">Register</div>
+            </a>
+        </li>
+    }
+</ul>

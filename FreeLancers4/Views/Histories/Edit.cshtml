@@ -1,0 +1,67 @@
+﻿@model FreeLancers4.Models.History
+
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["name"] = "history-edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="inputs-container-holder">
+    <div class="inputs-container">
+        <div class="inputs-title">@ViewBag.Title</div>
+        <div class="inputs-subtitle">Edit Work</div>
+
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="ID" />
+           
+            <div class="input-div">
+                <label asp-for="Project.ProjectTitle"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="Project.ProjectTitle" placeholder="Project title">
+                </div>
+                <span asp-validation-for="Project.ProjectTitle" class="error"></span>
+            </div>
+
+
+            <div class="input-div">
+                <label asp-for="Project.PostDate"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="Project.PostDate" placeholder="Project post date">
+                </div>
+                <span asp-validation-for="Project.PostDate" class="error"></span>
+            </div>
+
+
+            <div class="input-div">
+                <label asp-for="Project.Description"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="Project.Description" placeholder="Project description">
+                </div>
+                <span asp-validation-for="Project.Description" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Rating"></label>
+                <div class="actual-input">
+                    <input asp-for="Rating" placeholder="Enter rating">
+                </div>
+                <span asp-validation-for="Rating" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Comments"></label>
+                <div class="actual-input">
+                    <input asp-for="Comments" placeholder="Add any comments about the work done">
+                </div>
+                <span asp-validation-for="Comments" class="error"></span>
+            </div>
+            <div class="inputs-button">
+                <button type="submit">Mark as complete</button>
+            </div>
+        </form>
+
+        <a asp-action="Index">
+            <div class="forgot-password">Back to List</div>
+        </a>
+
+    </div>
+</div>
+

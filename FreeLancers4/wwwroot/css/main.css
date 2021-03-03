@@ -1,0 +1,701 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(../Assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: Montserrat_Bold;
+    src: url(../Assets/fonts/Montserrat-Bold.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #EBEBEB;
+}
+
+* {
+    font-family: Montserrat;
+    color: #0C1014;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box
+}
+
+
+/* MAIN CSS */
+
+
+/* ==================================================================== */
+
+.container {
+    width: 100%;
+}
+
+.navbar-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actual-logo {
+    height: 2.3em;
+    padding-top: .8em;
+    padding-left: 1em;
+}
+
+.actual-logo img {
+    height: 100%;
+}
+
+.welcome-home-actual-image {
+    height: 7em;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-home-actual-image img {
+    height: 100%;
+}
+
+
+/* END OF MAIN CSS */
+
+
+/* ---------------------------------------------------------------------- */
+
+
+/* HOMEPAGE */
+
+
+/* ======================================================= */
+
+.gradient-container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#33414d, #0C1014);
+}
+
+.body-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navbar-nav {
+    justify-content: flex-end;
+}
+
+.nav-list-container {
+    margin-right: 1em;
+}
+
+.nav-list-container ul {
+    display: flex;
+}
+
+.nav-list-container ul li {
+    font-size: .85rem;
+}
+
+.nav-actual-list {
+    padding: .4em 1.5em;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    border: none;
+    background: none;
+}
+
+.nav-actual-list:hover {
+    background: #FA5426;
+}
+
+.body-div {
+    width: 100%;
+}
+
+.welcome {
+    text-align: center;
+    font-family: Montserrat_Bold;
+    font-size: 3rem;
+    color: #FFD700;
+}
+
+.welcome-message {
+    box-sizing: border-box;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    line-height: 1.7rem;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    color: white;
+}
+
+.signin-button {
+    display: flex;
+    justify-content: center;
+}
+
+.signin-button button {
+    background: #FA5426;
+    border: none;
+    padding: .5em 2em;
+    border-radius: 10px;
+    color: white;
+}
+
+    .signin-button button:hover {
+        /*  background: #f8653c;*/
+        background: #f7f143;
+    }
+
+.slideshow-cotainer {
+    max-width : 100px;
+
+}
+
+
+/* END OF HOMEPAGE */
+
+
+/* -------------------------------------------------------------------- */
+
+
+/* LOGIN */
+
+
+/* ====================================================== */
+
+.navbar-div {
+    background: #0C1014;
+}
+
+#nav_bar_div_home {
+    background: transparent;
+}
+
+.inputs-container {
+    box-sizing: border-box;
+    width: 90%;
+    background: white;
+    box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
+    margin: auto;
+    padding: 4em 1em;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.inputs-title {
+    font-size: 1.2rem;
+    font-family: Montserrat_Bold;
+}
+
+.inputs-subtitle {
+    font-size: .85rem;
+    margin-top: .5em;
+    margin-bottom: 2em;
+}
+
+.input-div {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.error {
+    font-size: .75rem;
+    color: red;
+}
+
+.input-div label {
+    font-size: .8rem;
+}
+
+.actual-input {
+    width: 100%;
+}
+
+.actual-input input,
+.actual-input select {
+    box-sizing: border-box;
+    width: 100%;
+    border: solid #0c101459 1px;
+    border-radius: 5px;
+    padding: .5em 1em;
+    margin-top: .3em;
+}
+
+.actual-input input:hover,
+.actual-input select:hover {
+    border-color: #f8653c62;
+}
+
+.remember-me-container {
+    font-size: .85rem;
+    margin-top: 1em;
+}
+
+.remember-me-container label {
+    font-size: .8rem;
+}
+
+.remember-me-container label:hover {
+    color: #f8653c;
+    cursor: pointer;
+}
+
+.inputs-button {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2em;
+}
+
+.inputs-button button {
+    background: #FA5426;
+    border: none;
+    padding: .7em 2em;
+    border-radius: 5px;
+    color: white;
+}
+
+.inputs-button button:hover {
+    background: #f8653c;
+}
+
+.forgot-password,
+.register-new-user {
+    font-size: .8rem;
+    color: #f8653c;
+    margin-top: 2em;
+}
+
+.register-new-user {
+    margin-top: .5em;
+}
+
+.forgot-password:hover,
+.register-new-user:hover {
+    color: #0C1014;
+}
+
+.work-buttons {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.work-buttons .inputs-button {
+    margin-top: 1em;
+    padding: 0;
+}
+
+
+/* END OF LOGIN */
+
+
+/* ----------------------------------------------------------------- */
+
+
+/* ====================================================================== */
+
+
+/* ALL LISTINGS */
+
+.client-work-card-container {
+    width: 100%;
+}
+
+.client-work-card-div {
+    box-sizing: border-box;
+    width: 95%;
+    margin: auto;
+    background: white;
+    box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
+    padding: .5em;
+    margin-top: 1em;
+    border-radius: 5px;
+}
+
+.project-name {
+    font-size: 1rem;
+    font-family: Montserrat_Bold;
+    color: #FA5426;
+}
+
+.project-name-subheading {
+    font-size: .8rem;
+    color: #1d262e91;
+}
+
+.description {
+    font-size: .8rem;
+    margin-top: 1em;
+}
+
+.skills {
+    font-size: .8rem;
+    font-family: Montserrat_Bold;
+    margin-top: 1em;
+    color: #FA5426;
+}
+
+.client-work-card-section-2-top {
+    font-family: Montserrat_Bold;
+    font-size: 1.4rem;
+    margin-top: 1em;
+}
+
+.client-work-card-section-2-bottom {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.client-work-card-section-2-bottom-button button {
+    padding: .5em 2em;
+    border: none;
+    background: #FA5426;
+    color: white;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.client-work-card-section-2-bottom-button button:hover {
+    background: #f8653c;
+}
+
+
+/* END OF ALL LISTINGS */
+
+
+/* -------------------------------------------------------------------- */
+
+
+/* =============================================================== */
+
+
+/* WORK HISTORY */
+
+.rating {
+    margin-top: 1em;
+    font-size: .75rem;
+    color: #0c101488;
+}
+
+.complete-date {
+    font-size: .8rem;
+    color: #0c101488;
+}
+
+.general-details-container {
+    box-sizing: border-box;
+    width: 90%;
+    margin: auto;
+    background: white;
+    box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
+    margin-top: 1em;
+    padding: 3em 1em;
+    border-radius: 5px;
+}
+
+.general-details-header {
+    font-size: 1.2rem;
+    font-family: Montserrat_Bold;
+    color: #FA5426;
+}
+
+.general-details-content {
+    width: 100%;
+    display: flex;
+    margin-top: .5rem;
+}
+
+.general-details-content-div {
+    margin: 2em 0;
+}
+
+.general-details-content-left {
+    font-size: .85rem;
+    font-family: Montserrat_Bold;
+    width: 30%;
+}
+
+.general-details-content-right {
+    font-size: .85rem;
+    padding-left: 1em;
+    width: 70%;
+    color: #0c1014c4;
+}
+
+.general-details-subheading {
+    margin-bottom: 1em;
+    color: #0c101488;
+}
+
+
+/* END OF WORK HISTORY */
+
+
+/* ------------------------------------------------------------------------ */
+
+
+/* =========================================================== */
+
+
+/* ABOUT US */
+
+.description-pages-container {
+    width: 100%;
+    padding: 1em;
+}
+
+.description-pages-left-section {
+    background: white;
+    box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
+    margin: auto;
+    margin-top: 1em;
+    border-radius: 5px;
+    padding: 4em 1em;
+}
+
+.description-pages-left-section-title {
+    font-size: 1.5rem;
+    font-family: Montserrat_Bold;
+    color: #FA5426;
+}
+
+.description-pages-left-section-content {
+    font-size: .85rem;
+    margin-top: 2em;
+    color: #1d262eb4;
+}
+
+
+/* END OF ABOUT US  */
+
+
+/* ---------------------------------------------------------------------- */
+
+
+/* ================================================================== */
+
+
+/* MANAGE ACCOUNT */
+
+.manage-account-container {
+    padding: 0 .3em;
+}
+
+.manage-account-section {
+    width: 100%;
+    display: flex;
+}
+
+.manage-account-header {
+    box-sizing: border-box;
+    width: 100%;
+    background: white;
+    box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
+    margin-top: 1em;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.manage-account-header-title {
+    font-size: 1.2rem;
+    font-family: Montserrat_Bold;
+    color: #FA5426;
+}
+
+.manage-account-header-subtitle {
+    color: #0c1014;
+    margin-top: .5em;
+}
+
+.manage-account-left {
+    box-sizing: border-box;
+    width: 25%;
+    background: white;
+    box-shadow: 2px 2px 3px 0px rgba(12, 16, 20, 0.18);
+    padding: .5em;
+    margin-top: 1em;
+    border-radius: 5px;
+}
+
+.manage-account-right {
+    margin: 0;
+    width: 75%;
+}
+
+.manage-account-left-button {
+    width: 100%;
+}
+
+.manage-account-left-button button {
+    width: 100%;
+    color: #0C1014;
+    border-radius: 5px;
+    border: none;
+    margin-top: .5em;
+    padding: 1em 0;
+    background: white;
+}
+
+.manage-account-left-button button:hover {
+    color: white;
+    background: #FA5426;
+}
+
+.working-image {
+    display: none;
+}
+
+.blue button {
+    background: #add8e6;
+}
+
+.green button {
+    background: #90ee90;
+}
+
+.ffd button {
+    background: #FFD700;
+}
+
+
+/* END OF MANAGE ACCOUNT */
+
+
+/* ----------------------------------------------------------------------- */
+
+
+/* ################################################################ */
+
+@media screen and (min-width: 768px) {
+    .client-work-card-section-2-bottom {
+        width: 40%;
+    }
+    .general-details-container {
+        width: 60%;
+        margin-left: 2em;
+    }
+    .work-buttons {
+        width: 90%;
+        margin: auto;
+    }
+    .work-buttons .inputs-button {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .inputs-container-holder {
+        box-sizing: border-box;
+        padding-left: 1em;
+        width: 100%;
+        display: flex;
+    }
+    .inputs-container {
+        width: 45%;
+        margin-left: 0;
+    }
+    .working-image {
+        display: block;
+        width: 55%;
+    }
+    .working-image-div {
+        width: 80%;
+        margin: auto;
+    }
+    .working-image-div img {
+        width: 100%;
+    }
+    .client-work-card-section-2-bottom {
+        display: block;
+    }
+    .client-work-card-section-2 {
+        width: 20%;
+    }
+    .client-work-card-section-2-bottom {
+        width: 100%;
+    }
+    .client-work-card-div {
+        width: 70%;
+        margin-left: 0;
+        margin-left: 2em;
+    }
+    .client-work-card-section-2-bottom-button {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .client-work-card-section-1 {
+        width: 80%;
+    }
+    .client-work-card-section-2-top {
+        margin-top: 0;
+    }
+    .client-work-card-section-2-bottom-button button {
+        margin-top: .5em;
+        width: 100%;
+    }
+    .client-work-card-div {
+        display: flex;
+    }
+    .description-pages-left-section {
+        width: 50%;
+        margin-left: 0;
+    }
+    .general-details-container {
+        width: 50%;
+        margin-left: 2em;
+    }
+    .general-details-content-left {
+        width: 25%;
+    }
+    .general-details-content-right {
+        width: 75%;
+    }
+    .manage-account-left {
+        padding: 1em;
+    }
+    .manage-account-container {
+        padding: 0 1em;
+    }
+    .manage-account-section {
+        width: 60%;
+        display: flex;
+    }
+    .manage-account-header {
+        box-sizing: border-box;
+        width: 60%;
+    }
+    .work-buttons {
+        box-sizing: border-box;
+        width: 45%;
+        margin: 0;
+        padding-left: 1em;
+        margin-top: 1em;
+    }
+    .work-buttons .inputs-button {
+        margin: 0;
+    }
+}

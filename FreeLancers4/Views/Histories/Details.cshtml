@@ -1,0 +1,39 @@
+﻿@model FreeLancers4.Models.History
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="general-details-container">
+    <div class="general-details-header">Details</div>
+    <div class="general-details-subheading">View details below</div>
+    <div class="general-details-content-div">
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Title</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project.Assigned)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Posted Date</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project.PostDate)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Description</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Project.Description)</div>
+        </div>
+
+    </div>
+
+    <div class="client-work-card-section-2-bottom-button">
+        <a asp-action="Edit" asp-route-id="@Model.ID"><button>Edit</button></a>
+    </div>
+    <a asp-action="Index">
+        <div class="forgot-password">
+            Back to List
+        </div>
+    </a>
+</div>
+

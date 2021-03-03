@@ -1,0 +1,76 @@
+﻿@model FreeLancers4.Models.MyHistory
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>MyHistory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="input-div">
+                <label asp-for="ProjectName"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="ProjectName" placeholder="Project Name" />
+                </div>
+                <input asp-for="ProjectName" class="form-control" />
+
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="input-div">
+                <label asp-for="Description"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="Description" placeholder="Project Description">
+                </div>
+                <span asp-validation-for="Description" class="error"></span>
+            </div>
+
+            <div class="input-div">
+                <label asp-for="Freelancer"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="Freelancer" placeholder="Completed By">
+                </div>
+                <span asp-validation-for="Freelancer" class="error"></span>
+            </div>
+
+            <div class="input-div">
+                <label asp-for="Rating"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="Rating" placeholder="Project Rating">
+                </div>
+                <span asp-validation-for="Rating" class="error"></span>
+            </div>
+
+            <div class="input-div">
+                <label asp-for="DeliveredOn"></label>
+                <div class="actual-input">
+                    <input readonly asp-for="DeliveredOn" placeholder="Project Completion Date">
+                </div>
+                <span asp-validation-for="DeliveredOn" class="error"></span>
+            </div>
+
+
+            <div class="inputs-button">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="submit">Mark as complete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--<div>
+    <a asp-action="Index">Back to List</a>
+</div>-->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

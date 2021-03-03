@@ -1,0 +1,57 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    ViewData["name"] = "login"; // Program friendly name - not human friendly
+}
+
+<div class="inputs-container-holder">
+    <div class="inputs-container">
+        <div class="inputs-title">@ViewBag.Title</div>
+        <div class="inputs-subtitle">Use a local account to log in</div>
+        <div asp-validation-summary="All" class="error"></div>
+
+        <form id="account" method="post">
+            <div class="input-div">
+                <label asp-for="Input.Email"></label>
+                <div class="actual-input">
+                    <input asp-for="Input.Email" placeholder="Enter your email">
+                </div>
+                <span asp-validation-for="Input.Email" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Input.Password"></label>
+                <div class="actual-input">
+                    <input asp-for="Input.Password" placeholder="Enter your Password">
+                </div>
+                <span asp-validation-for="Input.Password" class="error"></span>
+            </div>
+            <div class="remember-me-container">
+                <input asp-for="Input.RememberMe" type="checkbox">
+                <label asp-for="Input.RememberMe">@Html.DisplayNameFor(m => m.Input.RememberMe)</label>
+            </div>
+
+            <div class="inputs-button">
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+
+        <a id="forgot-password" asp-page="./ForgotPassword">
+            <div class="forgot-password">Forgot Password?</div>
+        </a>
+        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">
+            <div class="register-new-user">Register as a new User</div>
+        </a>
+
+    </div>
+    <div class="working-image">
+        <div class="working-image-div">
+            <img src="~/Assets/images/working_day.png" alt="Working Day PNG">
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

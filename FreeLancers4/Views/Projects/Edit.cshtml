@@ -1,0 +1,70 @@
+﻿@model FreeLancers4.Models.Work
+
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["name"] = "edit-project";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="inputs-container-holder">
+    <div class="inputs-container">
+        <div class="inputs-title">@ViewBag.Title</div>
+        <div class="inputs-subtitle">Edit project data</div>
+        <div asp-validation-summary="All" class="error"></div>
+
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="ID" />
+            <div class="input-div">
+                <label asp-for="ProjectTitle"></label>
+                <div class="actual-input">
+                    <input asp-for="ProjectTitle" placeholder="Enter project title">
+                </div>
+                <span asp-validation-for="ProjectTitle" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Description"></label>
+                <div class="actual-input">
+                    <input asp-for="Description" placeholder="Enter description">
+                </div>
+                <span asp-validation-for="Description" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Skills"></label>
+                <div class="actual-input">
+                    <input asp-for="Skills" placeholder="Enter skills">
+                </div>
+                <span asp-validation-for="Skills" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Price"></label>
+                <div class="actual-input">
+                    <input asp-for="Price" placeholder="Enter price">
+                </div>
+                <span asp-validation-for="Price" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="DueDate"></label>
+                <div class="actual-input">
+                    <input asp-for="DueDate" placeholder="Enter due date">
+                </div>
+                <span asp-validation-for="DueDate" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="ContactEmail"></label>
+                <div class="actual-input">
+                    <input asp-for="ContactEmail" placeholder="Enter contact email">
+                </div>
+                <span asp-validation-for="ContactEmail" class="error"></span>
+            </div>
+            <div class="inputs-button">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+
+        <a asp-action="Index">
+            <div class="forgot-password">Back to List</div>
+        </a>
+
+    </div>
+</div>

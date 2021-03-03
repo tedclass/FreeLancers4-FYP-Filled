@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+
+@inject UserManager<FreeLancers4User> UserManager
+
+@model IEnumerable<FreeLancers4.Models.MyHistory>
+
+@{ ViewData["Title"] = "My History";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>My History</h1>
+
+<p>
+    <div class="client-work-card-section-2-bottom-button">
+        <div class="client-work-card-section-2-bottom-button">
+            <a asp-action="Create"><button>Create New</button></a>
+            </div>
+        </div>
+</p>
+<!--The above button face is what we changed-->
+
+
+<div class="client-work-card-div">
+    @foreach (var item in Model)
+    {
+    <div class="client-work-card-container">
+        <div class="client-work-card-div">
+            <div class="client-work-card-section-1">
+                <div class="project-name">@Html.DisplayFor(modelItem => item.ProjectName)</div>
+                
+                <div class="freelancer">Done by: @Html.DisplayFor(modelItem => item.Freelancer)</div>
+            </div>
+        </div>
+
+
+        <div class="client-work-card-section-2">
+            <div class="description"> @Html.DisplayFor(modelItem => item.Description)</div>
+            <div class="rating">Rating: @Html.DisplayFor(modelItem => item.Rating)</div>
+            <div class="complete-date">Delivered Date: @Html.DisplayFor(modelItem => item.DeliveredOn)</div>
+            <div class="client-work-card-section-2-bottom">
+
+            
+
+            <a asp-action="Edit" asp-route-id="@item.ID">
+                <div class="client-work-card-section-2-bottom-button">
+                    <div class="client-work-card-section-2-bottom-button">
+                        <button>Edit</button>
+                    </div>
+            </a>
+                <br/>
+
+            <a asp-action="Details" asp-route-id="@item.ID">
+                <div class="client-work-card-section-2-bottom-button">
+                    <button>Details</button>
+                </div>
+            </a>
+                <br/>
+            <a asp-action="Delete" asp-route-id="@item.ID">
+                <div class="client-work-card-section-2-bottom-button">
+                    <button>Delete</button>
+                </div>
+            </a>
+</div>
+
+
+
+        </div>
+        </div>
+
+
+
+
+
+        }
+    </div>

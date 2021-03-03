@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FreeLancers4.Areas.Identity.Data
+
+@inject SignInManager<FreeLancers4User> SignInManager
+@inject UserManager<FreeLancers4User> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FreeLancers4</title>
+    <link rel="stylesheet" href="~/css/main.css" />
+</head>
+<body>
+    @if (ViewBag.name == "home")
+    {
+        <div class="gradient-container">
+            <!-- HEADER -->
+            <header class="navbar-container">
+                <div id="nav_bar_div_home" class="navbar-div">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <div class="logo">
+                            <div class="actual-logo">
+                                <img src="~/Assets/images/horizontal_logo.png" alt="Freelancers4 White">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="nav-list-container">
+                        <ul>
+                            <partial name="_LoginPartialHome" />
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="Privacy">
+                                    <div class="nav-actual-list">Privacy</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="About">
+                                    <div class="nav-actual-list">About</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <!-- END OF HEADER -->
+
+            @RenderBody()
+
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <!-- HEADER -->
+            <div class="navbar-container">
+                <div class="navbar-div">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <div class="logo">
+                            <div class="actual-logo">
+                                <img src="~/Assets/images/horizontal_logo.png" alt="Freelancers4 White">
+                            </div>
+                        </div>
+                    </a>
+                    <div class="nav-list-container">
+                        <ul>
+                            <partial name="_LoginPartial" />
+                            <li>
+                                <a asp-controller="Home" asp-action="Privacy">
+                                    <div class="nav-actual-list">Privacy</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-area="" asp-controller="Home" asp-action="About">
+                                    <div class="nav-actual-list">About</div>
+                                </a>
+                            </li>
+
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li>
+                                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button class="nav-actual-list">Logout</button>
+                                    </form>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- END OF HEADER -->
+
+            @RenderBody()
+
+        </div>
+    }
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--- <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

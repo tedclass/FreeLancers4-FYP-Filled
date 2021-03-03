@@ -1,0 +1,54 @@
+﻿@model FreeLancers4.Models.MyHistory
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MyHistory</h4>
+
+    <hr />
+
+    <div class="general-details-container">
+        <div class="general-details-header">Details</div>
+        <div class="general-details-subheading">View project details below</div>
+        <div class="general-details-content-div">
+
+            <div class="general-details-content">
+                <div class="general-details-content-left">Project Name</div>
+                <div class="general-details-content-right">@Html.DisplayFor(model => model.ProjectName)</div>
+            </div>
+
+            <div class="general-details-content">
+                <div class="general-details-content-left">Description</div>
+                <div class="general-details-content-right">@Html.DisplayFor(model => model.Description)</div>
+            </div>
+
+            <div class="general-details-content">
+                <div class="general-details-content-left">Freelancer Name</div>
+                <div class="general-details-content-right">@Html.DisplayFor(model => model.Freelancer)</div>
+            </div>
+
+            <div class="general-details-content">
+                <div class="general-details-content-left">Rating</div>
+                <div class="general-details-content-right">@Html.DisplayFor(model => model.Rating)</div>
+            </div>
+
+            <div class="general-details-content">
+                <div class="general-details-content-left">Delivered On</div>
+                <div class="general-details-content-right">@Html.DisplayFor(model => model.DeliveredOn)</div>
+            </div>
+
+           </div>
+        </div>
+    </div>
+
+
+
+        <div class ="client-work-card-section-2-bottom-button">
+            <a asp-action="Edit" asp-route-id="@Model.ID"><button>Edit</button></a> |
+            <a asp-action="Index"><button>Back to List..</button></a>
+        </div>

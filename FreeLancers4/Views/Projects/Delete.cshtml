@@ -1,0 +1,42 @@
+﻿@model FreeLancers4.Models.Work
+
+@{
+    ViewData["Title"] = "Delete";
+    ViewData["name"] = "project-delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="general-details-container">
+    <div class="general-details-header">Details</div>
+    <div class="general-details-subheading">Confirm details below</div>
+    <div class="general-details-content-div">
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Title</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.ProjectTitle)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Posted Date</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.PostDate)</div>
+        </div>
+
+        <div class="general-details-content">
+            <div class="general-details-content-left">Description</div>
+            <div class="general-details-content-right">@Html.DisplayFor(model => model.Description)</div>
+        </div>
+
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <div class="client-work-card-section-2-bottom-button">
+            <button type="submit">Delete</button>
+        </div>
+        <a asp-action="Index">
+            <div class="forgot-password">
+                Back to List
+            </div>
+        </a>
+    </form>
+</div>

@@ -1,0 +1,63 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    ViewData["name"] = "register";
+}
+
+<div class="inputs-container-holder">
+    <div class="inputs-container">
+        <div class="inputs-title">@ViewBag.Title</div>
+        <div class="inputs-subtitle">Create a new account</div>
+        <div asp-validation-summary="All" class="error"></div>
+
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div class="input-div">
+                <label asp-for="Input.Email"></label>
+                <div class="actual-input">
+                    <input asp-for="Input.Email" placeholder="Enter your email">
+                </div>
+                <span asp-validation-for="Input.Email" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Input.Role"></label>
+                <div class="actual-input">
+                    <select asp-for="Input.Role" asp-items="Model.RoleSelectList"></select>
+                </div>
+                <span asp-validation-for="Input.Role" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Input.Password"></label>
+                <div class="actual-input">
+                    <input asp-for="Input.Password" placeholder="Enter your Password">
+                </div>
+                <span asp-validation-for="Input.Password" class="error"></span>
+            </div>
+            <div class="input-div">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <div class="actual-input">
+                    <input asp-for="Input.ConfirmPassword" placeholder="Enter your Password">
+                </div>
+                <span asp-validation-for="Input.ConfirmPassword" class="error"></span>
+            </div>
+
+            <div class="inputs-button">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+
+        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">
+            <div class="forgot-password">Login to existing account</div>
+        </a>
+        
+    </div>
+    <div class="working-image">
+        <div class="working-image-div">
+            <img src="~/Assets/images/working_day.png" alt="Working Day PNG">
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
